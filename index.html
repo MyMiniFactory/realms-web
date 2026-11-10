@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Only our own files plus Google Fonts may load. Update this if analytics or other third-party scripts are added. -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>Realms — Who will you be?</title>
+    <meta
+      name="description"
+      content="Realms is a place where your characters congregate to swap stories, share art and learn about one another."
+    />
+    <meta name="theme-color" content="#0c0b14" />
+
+    <!-- Social share previews. TODO: add og:url and og:image (absolute URLs) once the domain is known. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Realms" />
+    <meta property="og:title" content="Realms — Who will you be?" />
+    <meta
+      property="og:description"
+      content="Realms is a place where your characters congregate to swap stories, share art and learn about one another."
+    />
+
+    <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant:wght@700&family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <div class="page-bg" aria-hidden="true">
+      <img src="assets/images/background-landing.webp" alt="" />
+    </div>
+
+    <div class="page">
+      <header class="site-header">
+        <a class="logo" href="./">
+          <img
+            class="logo__icon"
+            src="assets/images/logo-icon.webp"
+            alt=""
+            width="85"
+            height="113"
+          />
+          <img
+            class="logo__wordmark"
+            src="assets/images/logo-wordmark.webp"
+            alt="Realms"
+            width="514"
+            height="113"
+          />
+        </a>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero__content">
+            <div class="hero__heading">
+              <p class="eyebrow">Welcome to the Realms!</p>
+              <h1 class="hero__title">Who will you be?</h1>
+              <div class="hero__intro">
+                <p>
+                  Realms is a place where your characters congregate to swap
+                  stories, share art and learn about one another.
+                </p>
+                <p>
+                  Catalogue your adventures, share information with your party
+                  members and organise your campaign
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="carousel carousel--hero"
+              data-carousel
+              data-autoplay="5000"
+              role="region"
+              aria-roledescription="carousel"
+              aria-label="Realms highlights"
+            >
+              <div class="carousel__track">
+                <div
+                  class="carousel__slide"
+                  id="hero-slide-1"
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label="1 of 4"
+                >
+                  <div class="hero-card card">
+                    <h2 class="hero-card__title">Character Profiles</h2>
+                    <p class="hero-card__body">
+                      A social media space for your characters! Make friends,
+                      share journal entries, sign up to campaigns!
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="carousel__slide"
+                  id="hero-slide-2"
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label="2 of 4"
+                >
+                  <div class="hero-card card">
+                    <h2 class="hero-card__title">Campaign Dashboards</h2>
+                    <p class="hero-card__body">
+                      A private space for you to share posts about your home
+                      game, to schedule sessions and store resources and assets
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="carousel__slide"
+                  id="hero-slide-3"
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label="3 of 4"
+                >
+                  <div class="hero-card card">
+                    <h2 class="hero-card__title">Projects</h2>
+                    <p class="hero-card__body">
+                      Track your progress of your ongoing projects such as
+                      miniature painting, campaign or character artwork, terrain
+                      building and more!
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="carousel__slide"
+                  id="hero-slide-4"
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label="4 of 4"
+                >
+                  <div class="hero-card card">
+                    <h2 class="hero-card__title">Personality and Alignment</h2>
+                    <p class="hero-card__body">
+                      Delve deep into the mind of your characters. Answer
+                      questions in-character to learn more about who they are as
+                      a person. Learn how your other party members really view
+                      your character.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel__dots">
+                <a
+                  class="carousel__dot"
+                  href="#hero-slide-1"
+                  aria-label="Go to slide 1"
+                  aria-current="true"
+                ></a>
+                <a
+                  class="carousel__dot"
+                  href="#hero-slide-2"
+                  aria-label="Go to slide 2"
+                ></a>
+                <a
+                  class="carousel__dot"
+                  href="#hero-slide-3"
+                  aria-label="Go to slide 3"
+                ></a>
+                <a
+                  class="carousel__dot"
+                  href="#hero-slide-4"
+                  aria-label="Go to slide 4"
+                ></a>
+              </div>
+            </div>
+
+            <div class="download download--hero">
+              <p class="eyebrow">Download Demo!</p>
+              <div class="store-buttons">
+                <div class="store">
+                  <a
+                    class="store-btn store-btn--wide"
+                    href="https://testflight.apple.com/join/SmsPnbJK"
+                  >
+                    <img
+                      src="assets/images/btn-app-store.webp"
+                      alt="Download on the App Store"
+                    />
+                  </a>
+                  <!-- QR boxes are not links (scanned with a phone) and are hidden on mobile.
+                       Each QR encodes the same URL as the button above it. -->
+                  <div class="store-btn store-btn--qr">
+                    <img
+                      src="assets/images/qr-ios.webp"
+                      alt="QR code to download Realms for iOS"
+                      width="384"
+                      height="384"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <div class="store">
+                  <a
+                    class="store-btn store-btn--wide"
+                    href="https://play.google.com/apps/testing/app.therealms"
+                  >
+                    <img
+                      src="assets/images/btn-google-play.webp"
+                      alt="Get it on Google Play"
+                    />
+                  </a>
+                  <div class="store-btn store-btn--qr">
+                    <img
+                      src="assets/images/qr-android.webp"
+                      alt="QR code to download Realms for Android"
+                      width="384"
+                      height="384"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <img
+            class="hero__screenshot"
+            src="assets/images/screenshot-main.webp"
+            width="632"
+            height="632"
+            alt="Realms app: campaigns list, character profile and projects"
+          />
+        </section>
+
+        <section class="feedback">
+          <p class="feedback__text">
+            We would love to hear your feedback on Realms
+          </p>
+          <a
+            class="feedback__btn"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeET7KSbn5ccqFNQkgipP0yzcLrrleTViaKCywwWVANHOp40w/viewform"
+          >
+            <img
+              src="assets/images/btn-feedback.webp"
+              alt="Share your feedback"
+              width="306"
+              height="134"
+            />
+          </a>
+        </section>
+
+        <section class="features" aria-label="Features">
+          <div
+            class="carousel carousel--features"
+            data-carousel
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Realms features"
+          >
+            <div class="carousel__track">
+              <article
+                class="feature carousel__slide"
+                id="feature-feed"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="1 of 4"
+              >
+                <img
+                  class="feature__image"
+                  src="assets/images/screenshot-main.webp"
+                  alt="Realms feed screen"
+                  width="318"
+                  height="318"
+                  loading="lazy"
+                />
+                <div class="feature__card card">
+                  <h2 class="feature__title">The Feed</h2>
+                  <div class="feature__body" tabindex="0">
+                    <p>
+                      The Feed is your landing page, your at a glance summary of
+                      everything that is new. It shows posts from the people
+                      that you follow, their characters, their projects and any
+                      updates posted to campaigns that you are a part of.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <article
+                class="feature carousel__slide"
+                id="feature-profiles"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="2 of 4"
+              >
+                <img
+                  class="feature__image"
+                  src="assets/images/screenshot-main.webp"
+                  alt="Realms profile screen"
+                  width="318"
+                  height="318"
+                  loading="lazy"
+                />
+                <div class="feature__card card">
+                  <h2 class="feature__title">Profiles</h2>
+                  <div class="feature__body" tabindex="0">
+                    <p>
+                      This is where you can build your own identity and your
+                      characters’ identities in Realms. Add information about
+                      yourself, upload a profile picture, a cover photo. Then
+                      start adding your characters. Each character gets their
+                      own profile associated with yours. Just as you can add
+                      your friends to your network, your characters can also add
+                      their friends in the form of other people’s characters.
+                      Share art of your character, diary entries or just tell us
+                      more about them in blog posts.
+                    </p>
+                    <p>
+                      Have your characters take our personality quiz to learn more about
+                      who they are. You built your Paladin to be selfless and
+                      heroic - but is he really? Let our questions guide you
+                      through hypothetical scenarios and see what your character
+                      is really like. Your campaign mates can also share their
+                      thoughts about your characters, you might believe he is
+                      the hero, but do those who travel with him agree?
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <article
+                class="feature carousel__slide"
+                id="feature-campaign"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="3 of 4"
+              >
+                <img
+                  class="feature__image"
+                  src="assets/images/screenshot-main.webp"
+                  alt="Realms campaign dashboard screen"
+                  width="318"
+                  height="318"
+                  loading="lazy"
+                />
+                <div class="feature__card card">
+                  <h2 class="feature__title">Campaign Dashboard</h2>
+                  <div class="feature__body" tabindex="0">
+                    <p>
+                      As a Dungeon Master, create a private space for you and
+                      your friends to talk about your campaign. Share artworks,
+                      secrets, favourite moments and memes. Create boards for
+                      different topics, collect all the artwork for your
+                      campaign in one place. Schedule sessions, giving your
+                      players and their characters a chance to RSVP. After each
+                      session, analyse your fellow characters, share what you
+                      think makes them tick, share what you viewed as their
+                      standout moments. Help your friends understand how their
+                      own characters are being perceived by others. By the end
+                      of the campaign, you will have collectively built a
+                      catalogue of your adventures for you to look back on.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <article
+                class="feature carousel__slide"
+                id="feature-projects"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="4 of 4"
+              >
+                <img
+                  class="feature__image"
+                  src="assets/images/screenshot-main.webp"
+                  alt="Realms projects screen"
+                  width="318"
+                  height="318"
+                  loading="lazy"
+                />
+                <div class="feature__card card">
+                  <h2 class="feature__title">Projects</h2>
+                  <div class="feature__body" tabindex="0">
+                    <p>
+                      Don’t just post separate images, post a journey. Projects
+                      is a way to connect a timeline, a thread, connecting
+                      individual posts relating to the same project. For
+                      example, miniature painting. Rather than having
+                      unconnected posts for ‘3D printed the model’, ‘primed it’,
+                      ‘base colours’, ‘highlights and shading’, ‘basing’ - tie
+                      them all together under one project. If you see a work in
+                      progress that you like, press a button to be shown the
+                      whole journey up until now in one place. Track your
+                      progress, meet your deadlines and let others witness your
+                      creative journey through Projects.
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="carousel__dots">
+              <a
+                class="carousel__dot"
+                href="#feature-feed"
+                aria-label="Go to slide 1"
+                aria-current="true"
+              ></a>
+              <a
+                class="carousel__dot"
+                href="#feature-profiles"
+                aria-label="Go to slide 2"
+              ></a>
+              <a
+                class="carousel__dot"
+                href="#feature-campaign"
+                aria-label="Go to slide 3"
+              ></a>
+              <a
+                class="carousel__dot"
+                href="#feature-projects"
+                aria-label="Go to slide 4"
+              ></a>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="download download--footer"
+          aria-label="Download the demo"
+        >
+          <div class="store-buttons">
+            <div class="store">
+              <a
+                class="store-btn store-btn--wide"
+                href="https://testflight.apple.com/join/SmsPnbJK"
+              >
+                <img
+                  src="assets/images/btn-app-store.webp"
+                  alt="Download on the App Store"
+                  loading="lazy"
+                />
+              </a>
+              <div class="store-btn store-btn--qr">
+                <img
+                  src="assets/images/qr-ios.webp"
+                  alt="QR code to download Realms for iOS"
+                  width="384"
+                  height="384"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div class="store">
+              <a
+                class="store-btn store-btn--wide"
+                href="https://play.google.com/apps/testing/app.therealms"
+              >
+                <img
+                  src="assets/images/btn-google-play.webp"
+                  alt="Get it on Google Play"
+                  loading="lazy"
+                />
+              </a>
+              <div class="store-btn store-btn--qr">
+                <img
+                  src="assets/images/qr-android.webp"
+                  alt="QR code to download Realms for Android"
+                  width="384"
+                  height="384"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

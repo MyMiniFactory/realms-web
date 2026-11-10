@@ -1,0 +1,91 @@
+/* ==========================================================================
+   Realms landing page: base (tokens, reset, typography basics)
+   Mobile-first (Figma frame 61:2, 360px). Desktop at >=768px (frame 40:2, 1366px).
+   Spacing values across all stylesheets are measured from the Figma frames.
+   ========================================================================== */
+
+/* ---------- Tokens ---------- */
+:root {
+  /* Colours */
+  --color-bg: #0c0b14;
+  --color-gold: #f0ce7d;
+  --color-text: #c9cae1;
+  --color-card-from: #1f1e42;
+  --color-card-to: #151629;
+  --color-card-border: #2a2b42;
+  --color-dot: #2a2b42;
+  --color-scrollbar: rgba(201, 202, 225, 0.5);
+  --color-image-placeholder: rgba(201, 202, 225, 0.22);
+  --color-store-from: rgba(240, 206, 125, 0.2);
+  --color-store-to: rgba(240, 206, 125, 0.08);
+  --color-store-border: rgba(240, 206, 125, 0.35);
+
+  /* Effects */
+  --shadow-card: 0 4px 4px rgba(0, 0, 0, 0.25);
+  --text-shadow: 0 2px 3px rgba(0, 0, 0, 0.9);
+  --radius: 5px;
+
+  /* Fonts */
+  --font-display: "Cormorant", serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  /* Layout */
+  --page-max: 1366px;
+  --features-max: 991px;
+  --gutter: 22px;
+}
+
+@media (min-width: 768px) {
+  :root { --radius: 10px; }
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body,
+h1, h2, p { margin: 0; }
+
+img { display: block; max-width: 100%; }
+
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Base ---------- */
+body {
+  position: relative;
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-gold);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.2;
+  text-shadow: var(--text-shadow);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a:focus-visible,
+[tabindex="0"]:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.eyebrow {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .eyebrow {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0;
+  }
+}

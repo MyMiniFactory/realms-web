@@ -1,0 +1,314 @@
+/* ==========================================================================
+   Realms landing page: layout (page, header, hero, feedback, features grid)
+   ========================================================================== */
+
+/* ---------- Background + page container ---------- */
+.page-bg {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.page-bg img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1366 / 768;
+  object-fit: cover;
+  opacity: 0.7;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-bottom: 40px;
+}
+
+/* ---------- Header / logo ---------- */
+.site-header {
+  display: flex;
+  justify-content: center;
+  padding: 17px var(--gutter) 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 3.25%;
+  width: min(305px, 100%);
+}
+
+.logo__icon {
+  width: 13.75%;
+  height: auto;
+}
+.logo__wordmark {
+  width: 83%;
+  height: auto;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: var(--gutter);
+  text-align: center;
+}
+
+/* On mobile the image sits between the intro and the carousel,
+   so the content wrapper is flattened and its children re-ordered. */
+.hero__content {
+  display: contents;
+}
+.hero__heading {
+  order: 1;
+  width: 100%;
+}
+.hero__screenshot {
+  order: 2;
+}
+.carousel--hero {
+  order: 3;
+}
+.download--hero {
+  order: 4;
+}
+
+.hero__heading .eyebrow {
+  margin-top: 24px;
+}
+
+.hero__title {
+  margin-top: 1px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 46px;
+  letter-spacing: 0.02em;
+}
+
+.hero__intro {
+  margin-top: 6px;
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.hero__screenshot {
+  height: auto;
+  aspect-ratio: 1;
+  margin-top: 6px;
+}
+
+.carousel--hero {
+  width: 100%;
+  margin-top: 11px;
+}
+
+.download--hero {
+  width: 100%;
+}
+.download--hero .eyebrow {
+  margin-top: 17px;
+}
+
+/* Footer copy of the download buttons is desktop only */
+.download--footer {
+  display: none;
+}
+
+/* ---------- Feedback ---------- */
+.feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: var(--gutter);
+  margin-top: 25px;
+}
+
+.feedback__text {
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.feedback__btn {
+  display: block;
+  width: 164px;
+  margin-top: -14px;
+  transition: filter 0.15s ease;
+}
+
+.feedback__btn img {
+  width: 100%;
+  height: auto;
+}
+.feedback__btn:hover,
+.feedback__btn:focus-visible {
+  filter: brightness(1.15);
+}
+.feedback__btn:focus-visible {
+  outline-offset: -20px;
+  border-radius: 24px;
+}
+
+/* ---------- Features (mobile: carousel) ---------- */
+.features {
+  padding-inline: var(--gutter);
+  margin-top: 1px;
+}
+
+/* ==========================================================================
+   Desktop (>=768px)
+   ========================================================================== */
+@media (min-width: 768px) {
+  .page {
+    padding-bottom: 99px;
+  }
+
+  .page-bg img {
+    height: 768px;
+    aspect-ratio: auto;
+  }
+
+  /* Header */
+  .site-header {
+    justify-content: flex-start;
+    padding: 35px 40px 0;
+  }
+
+  .logo {
+    width: min(619px, 100%);
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 569fr) minmax(0, 632fr);
+    column-gap: 59px;
+    align-items: start;
+    padding: 0 41px 0 65px;
+  }
+
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero__heading .eyebrow {
+    margin-top: 37px;
+  }
+
+  .hero__title {
+    margin-top: 10px;
+    font-size: clamp(38px, 4.1vw, 56px);
+    line-height: 1.16;
+  }
+
+  .hero__intro {
+    margin-top: 21px;
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .hero__screenshot {
+    width: 100%;
+  }
+
+  .carousel--hero {
+    margin-top: 26px;
+  }
+
+  .download--hero .eyebrow {
+    margin-top: 27px;
+  }
+
+  .download--footer {
+    display: block;
+    margin-top: 65px;
+    padding-inline: 40px;
+  }
+
+  .download--footer .store-buttons {
+    margin-top: 0;
+  }
+
+  /* Feedback: text and button on one row, centred */
+  .feedback {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 0;
+    padding-inline: 40px;
+  }
+
+  .feedback__text {
+    flex: 0 1 434px;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: left;
+  }
+
+  .feedback__btn {
+    flex: 0 0 auto;
+    width: 306px;
+    margin: 0 0 0 -36px;
+  }
+
+  /* Narrow desktop: stack the text above the button (as on mobile) so they don't collide */
+  @media (max-width: 1023px) {
+    .feedback {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 32px;
+    }
+
+    .feedback__text {
+      flex: none;
+      text-align: center;
+    }
+
+    .feedback__btn {
+      margin: -26px 0 0;
+    }
+  }
+
+  /* Features: carousel off, 4 alternating rows */
+  .features {
+    max-width: calc(var(--features-max) + 80px);
+    margin: 11px auto 0;
+    padding-inline: 40px;
+  }
+
+  .carousel--features .carousel__track {
+    display: grid;
+    row-gap: 35px;
+    overflow: visible;
+    scroll-snap-type: none;
+    padding-bottom: 0;
+  }
+
+  .carousel--features .carousel__dots {
+    display: none;
+  }
+
+  .feature {
+    display: grid;
+    grid-template-columns: minmax(200px, 318px) minmax(0, 1fr);
+    column-gap: 38px;
+    align-items: start;
+  }
+
+  .feature:nth-child(even) {
+    grid-template-columns: minmax(0, 1fr) minmax(200px, 318px);
+  }
+  .feature:nth-child(even) .feature__image {
+    order: 2;
+  }
+}
+@media (min-width: 1260px) {
+  .hero__screenshot {
+    margin-top: -54px;
+  }
+}
