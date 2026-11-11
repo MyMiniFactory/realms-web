@@ -48,34 +48,18 @@
       slideObserver.observe(slide);
     });
 
-    // 2. Dot clicks: one delegated listener on the dots container
-    dotsWrap.addEventListener("click", function (event) {
-      var dot = event.target.closest(".carousel__dot");
-      if (!dot) return;
-      event.preventDefault();
-      if (!isScrollable()) return;
-      goTo(dots.indexOf(dot));
-      restart();
-    });
-
-    // 3. Autoplay
+    // 2. Autoplay state. Declared before anything uses it, so restart() is
+    // safe on carousels without autoplay (it is a no-op there).
     var delay = parseInt(root.getAttribute("data-autoplay"), 10);
-    if (!delay || reducedMotion.matches) return;
-
+    var autoplay = delay > 0 && !reducedMotion.matches;
     var timer = null;
     var focused = false;
-    var hovered = false;
     var touched = false;
     var onScreen = true;
 
     function canPlay() {
       return (
-        !focused &&
-        !hovered &&
-        !touched &&
-        onScreen &&
-        !document.hidden &&
-        isScrollable()
+        !focused && !touched && onScreen && !document.hidden && isScrollable()
       );
     }
 
@@ -96,6 +80,19 @@
       if (timer) start();
     }
 
+    // 3. Dot clicks: one delegated listener on the dots container
+    dotsWrap.addEventListener("click", function (event) {
+      var dot = event.target.closest(".carousel__dot");
+      if (!dot) return;
+      event.preventDefault();
+      if (!isScrollable()) return;
+      goTo(dots.indexOf(dot));
+      restart();
+    });
+
+    // 4. Autoplay pause/resume triggers
+    if (!autoplay) return;
+
     root.addEventListener("focusin", function () {
       focused = true;
       stop();
@@ -103,19 +100,6 @@
     root.addEventListener("focusout", function (event) {
       if (!root.contains(event.relatedTarget)) {
         focused = false;
-        start();
-      }
-    });
-    // Pause while a mouse user is reading the slide.
-    root.addEventListener("pointerenter", function (event) {
-      if (event.pointerType === "mouse") {
-        hovered = true;
-        stop();
-      }
-    });
-    root.addEventListener("pointerleave", function (event) {
-      if (event.pointerType === "mouse") {
-        hovered = false;
         start();
       }
     });

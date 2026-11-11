@@ -4,6 +4,23 @@
    Spacing values across all stylesheets are measured from the Figma frames.
    ========================================================================== */
 
+/* ---------- Fonts (self-hosted latin subsets, preloaded in index.html) ---------- */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 700; /* variable font: one file covers 400, 500 and 700 */
+  font-display: swap;
+  src: url("../assets/fonts/inter-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Cormorant";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-700-latin.woff2") format("woff2");
+}
+
 /* ---------- Tokens ---------- */
 :root {
   /* Colours */
@@ -64,7 +81,6 @@ body {
   line-height: 1.2;
   text-shadow: var(--text-shadow);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
 a:focus-visible,

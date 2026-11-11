@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Only our own files plus Google Fonts may load. Update this if analytics or other third-party scripts are added. -->
+    <!-- Only our own files may load. Update this if analytics or other third-party scripts are added. -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'"
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <title>Realms — Who will you be?</title>
@@ -19,20 +19,31 @@
     <!-- Social share previews. TODO: add og:url and og:image (absolute URLs) once the domain is known. -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Realms" />
+    <meta property="og:locale" content="en_GB" />
     <meta property="og:title" content="Realms — Who will you be?" />
     <meta
       property="og:description"
       content="Realms is a place where your characters congregate to swap stories, share art and learn about one another."
     />
+    <meta name="twitter:card" content="summary" />
 
     <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Self-hosted fonts (latin subset); preloaded so text renders without waiting on CSS -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant:wght@700&family=Inter:wght@400;500;700&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="assets/fonts/inter-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/cormorant-700-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
 
     <link rel="stylesheet" href="css/base.css" />
@@ -42,25 +53,37 @@
   </head>
   <body>
     <div class="page-bg" aria-hidden="true">
-      <img src="assets/images/background-landing.webp" alt="" />
+      <img
+        src="assets/images/background-landing.webp"
+        srcset="
+          assets/images/background-landing-800.webp  800w,
+          assets/images/background-landing.webp     1366w
+        "
+        sizes="100vw"
+        alt=""
+        width="1366"
+        height="768"
+        fetchpriority="high"
+      />
     </div>
 
     <div class="page">
       <header class="site-header">
-        <a class="logo" href="./">
+        <a class="logo" href="/"
+          ><!-- TODO: logo link target -->
           <img
             class="logo__icon"
             src="assets/images/logo-icon.webp"
             alt=""
-            width="85"
-            height="113"
+            width="78"
+            height="109"
           />
           <img
             class="logo__wordmark"
             src="assets/images/logo-wordmark.webp"
             alt="Realms"
-            width="514"
-            height="113"
+            width="500"
+            height="93"
           />
         </a>
       </header>
@@ -107,6 +130,7 @@
                     </p>
                   </div>
                 </div>
+                <!-- TODO: replace slides 2–4 with real copy from PO -->
                 <div
                   class="carousel__slide"
                   id="hero-slide-2"
@@ -233,6 +257,11 @@
           <img
             class="hero__screenshot"
             src="assets/images/screenshot-main.webp"
+            srcset="
+              assets/images/screenshot-main-640.webp  640w,
+              assets/images/screenshot-main.webp     1080w
+            "
+            sizes="(min-width: 1366px) 632px, (min-width: 768px) 46vw, calc(100vw - 44px)"
             width="632"
             height="632"
             alt="Realms app: campaigns list, character profile and projects"
@@ -250,8 +279,8 @@
             <img
               src="assets/images/btn-feedback.webp"
               alt="Share your feedback"
-              width="306"
-              height="134"
+              width="254"
+              height="53"
             />
           </a>
         </section>
@@ -275,6 +304,11 @@
                 <img
                   class="feature__image"
                   src="assets/images/screenshot-main.webp"
+                  srcset="
+                    assets/images/screenshot-main-640.webp  640w,
+                    assets/images/screenshot-main.webp     1080w
+                  "
+                  sizes="(min-width: 768px) 318px, 355px"
                   alt="Realms feed screen"
                   width="318"
                   height="318"
@@ -303,6 +337,11 @@
                 <img
                   class="feature__image"
                   src="assets/images/screenshot-main.webp"
+                  srcset="
+                    assets/images/screenshot-main-640.webp  640w,
+                    assets/images/screenshot-main.webp     1080w
+                  "
+                  sizes="(min-width: 768px) 318px, 355px"
                   alt="Realms profile screen"
                   width="318"
                   height="318"
@@ -345,6 +384,11 @@
                 <img
                   class="feature__image"
                   src="assets/images/screenshot-main.webp"
+                  srcset="
+                    assets/images/screenshot-main-640.webp  640w,
+                    assets/images/screenshot-main.webp     1080w
+                  "
+                  sizes="(min-width: 768px) 318px, 355px"
                   alt="Realms campaign dashboard screen"
                   width="318"
                   height="318"
@@ -381,6 +425,11 @@
                 <img
                   class="feature__image"
                   src="assets/images/screenshot-main.webp"
+                  srcset="
+                    assets/images/screenshot-main-640.webp  640w,
+                    assets/images/screenshot-main.webp     1080w
+                  "
+                  sizes="(min-width: 768px) 318px, 355px"
                   alt="Realms projects screen"
                   width="318"
                   height="318"

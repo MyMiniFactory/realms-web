@@ -30,22 +30,24 @@
 .site-header {
   display: flex;
   justify-content: center;
-  padding: 17px var(--gutter) 0;
+  padding: 17px var(--gutter) 2px; /* bottom: keeps the hero where it was with the old padded logo */
 }
 
+/* Proportions from Figma, measured on the tightly cropped images */
 .logo {
   display: flex;
   align-items: center;
-  gap: 3.25%;
-  width: min(305px, 100%);
+  gap: 5%;
+  width: min(300px, 100%);
 }
 
 .logo__icon {
-  width: 13.75%;
+  width: 12.85%;
   height: auto;
 }
+
 .logo__wordmark {
-  width: 83%;
+  width: 82.15%;
   height: auto;
 }
 
@@ -66,15 +68,6 @@
 .hero__heading {
   order: 1;
   width: 100%;
-}
-.hero__screenshot {
-  order: 2;
-}
-.carousel--hero {
-  order: 3;
-}
-.download--hero {
-  order: 4;
 }
 
 .hero__heading .eyebrow {
@@ -97,19 +90,23 @@
 }
 
 .hero__screenshot {
+  order: 2;
   height: auto;
   aspect-ratio: 1;
   margin-top: 6px;
 }
 
 .carousel--hero {
+  order: 3;
   width: 100%;
   margin-top: 11px;
 }
 
 .download--hero {
+  order: 4;
   width: 100%;
 }
+
 .download--hero .eyebrow {
   margin-top: 17px;
 }
@@ -125,6 +122,7 @@
   flex-direction: column;
   align-items: center;
   padding-inline: var(--gutter);
+  padding-bottom: 22px;
   margin-top: 25px;
 }
 
@@ -136,8 +134,8 @@
 
 .feedback__btn {
   display: block;
-  width: 164px;
-  margin-top: -14px;
+  width: 136px;
+  margin-top: 8px;
   transition: filter 0.15s ease;
 }
 
@@ -145,13 +143,10 @@
   width: 100%;
   height: auto;
 }
+
 .feedback__btn:hover,
 .feedback__btn:focus-visible {
   filter: brightness(1.15);
-}
-.feedback__btn:focus-visible {
-  outline-offset: -20px;
-  border-radius: 24px;
 }
 
 /* ---------- Features (mobile: carousel) ---------- */
@@ -176,11 +171,11 @@
   /* Header */
   .site-header {
     justify-content: flex-start;
-    padding: 35px 40px 0;
+    padding: 35px 40px 4px;
   }
 
   .logo {
-    width: min(619px, 100%);
+    width: min(608px, 100%);
   }
 
   .hero {
@@ -239,12 +234,13 @@
   .feedback {
     flex-direction: row;
     justify-content: center;
+    gap: 15px;
     margin-top: 0;
-    padding-inline: 40px;
+    padding: 40px;
   }
 
   .feedback__text {
-    flex: 0 1 434px;
+    flex: 0 1 auto;
     font-size: 18px;
     line-height: 21px;
     text-align: left;
@@ -252,8 +248,12 @@
 
   .feedback__btn {
     flex: 0 0 auto;
-    width: 306px;
-    margin: 0 0 0 -36px;
+    width: 254px;
+    margin: 0;
+  }
+
+  .feedback__btn img {
+    filter: drop-shadow(0 0 8px rgba(255, 211, 0, 0.5));
   }
 
   /* Narrow desktop: stack the text above the button (as on mobile) so they don't collide */
@@ -261,7 +261,9 @@
     .feedback {
       flex-direction: column;
       align-items: center;
+      gap: 0;
       margin-top: 32px;
+      padding-block: 0 42px;
     }
 
     .feedback__text {
@@ -270,7 +272,7 @@
     }
 
     .feedback__btn {
-      margin: -26px 0 0;
+      margin-top: 14px;
     }
   }
 
