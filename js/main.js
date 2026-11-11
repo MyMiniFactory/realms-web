@@ -54,12 +54,18 @@
     var autoplay = delay > 0 && !reducedMotion.matches;
     var timer = null;
     var focused = false;
+    var hovered = false;
     var touched = false;
     var onScreen = true;
 
     function canPlay() {
       return (
-        !focused && !touched && onScreen && !document.hidden && isScrollable()
+        !focused &&
+        !hovered &&
+        !touched &&
+        onScreen &&
+        !document.hidden &&
+        isScrollable()
       );
     }
 
@@ -100,6 +106,19 @@
     root.addEventListener("focusout", function (event) {
       if (!root.contains(event.relatedTarget)) {
         focused = false;
+        start();
+      }
+    });
+    // Pause while a mouse user is reading the slide.
+    root.addEventListener("pointerenter", function (event) {
+      if (event.pointerType === "mouse") {
+        hovered = true;
+        stop();
+      }
+    });
+    root.addEventListener("pointerleave", function (event) {
+      if (event.pointerType === "mouse") {
+        hovered = false;
         start();
       }
     });
