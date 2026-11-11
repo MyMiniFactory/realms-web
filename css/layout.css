@@ -33,7 +33,6 @@
   padding: 17px var(--gutter) 2px; /* bottom: keeps the hero where it was with the old padded logo */
 }
 
-/* Proportions from Figma, measured on the tightly cropped images */
 .logo {
   display: flex;
   align-items: center;
