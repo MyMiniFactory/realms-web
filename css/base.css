@@ -4,6 +4,23 @@
    Spacing values across all stylesheets are measured from the Figma frames.
    ========================================================================== */
 
+/* ---------- Fonts (self-hosted latin subsets, preloaded in index.html) ---------- */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 700; /* variable font: one file covers 400, 500 and 700 */
+  font-display: swap;
+  src: url("../assets/fonts/inter-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Cormorant";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-700-latin.woff2") format("woff2");
+}
+
 /* ---------- Tokens ---------- */
 :root {
   /* Colours */
@@ -19,6 +36,7 @@
   --color-store-from: rgba(240, 206, 125, 0.2);
   --color-store-to: rgba(240, 206, 125, 0.08);
   --color-store-border: rgba(240, 206, 125, 0.35);
+  --color-feedback-glow: rgba(255, 211, 0, 0.5);
 
   /* Effects */
   --shadow-card: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -50,6 +68,10 @@ body,
 h1, h2, p { margin: 0; }
 
 img { display: block; max-width: 100%; }
+/* <picture> only swaps the file per breakpoint; let its <img> lay out as if unwrapped */
+picture { display: contents; }
+/* ...otherwise <source> becomes an empty grid/flex item and shifts the layout */
+picture > source { display: none; }
 
 a { color: inherit; text-decoration: none; }
 
@@ -64,7 +86,6 @@ body {
   line-height: 1.2;
   text-shadow: var(--text-shadow);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
 a:focus-visible,

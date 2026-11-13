@@ -48,20 +48,10 @@
       slideObserver.observe(slide);
     });
 
-    // 2. Dot clicks: one delegated listener on the dots container
-    dotsWrap.addEventListener("click", function (event) {
-      var dot = event.target.closest(".carousel__dot");
-      if (!dot) return;
-      event.preventDefault();
-      if (!isScrollable()) return;
-      goTo(dots.indexOf(dot));
-      restart();
-    });
-
-    // 3. Autoplay
+    // 2. Autoplay state. Declared before anything uses it, so restart() is
+    // safe on carousels without autoplay (it is a no-op there).
     var delay = parseInt(root.getAttribute("data-autoplay"), 10);
-    if (!delay || reducedMotion.matches) return;
-
+    var autoplay = delay > 0 && !reducedMotion.matches;
     var timer = null;
     var focused = false;
     var hovered = false;
@@ -95,6 +85,19 @@
     function restart() {
       if (timer) start();
     }
+
+    // 3. Dot clicks: one delegated listener on the dots container
+    dotsWrap.addEventListener("click", function (event) {
+      var dot = event.target.closest(".carousel__dot");
+      if (!dot) return;
+      event.preventDefault();
+      if (!isScrollable()) return;
+      goTo(dots.indexOf(dot));
+      restart();
+    });
+
+    // 4. Autoplay pause/resume triggers
+    if (!autoplay) return;
 
     root.addEventListener("focusin", function () {
       focused = true;

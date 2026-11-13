@@ -16,9 +16,9 @@ Realms is a mobile app where your tabletop RPG characters come together to swap 
 
 Realms is currently available as a demo:
 
-| Platform | Link |
-| --- | --- |
-| iOS (TestFlight) | <https://testflight.apple.com/join/SmsPnbJK> |
+| Platform                      | Link                                                 |
+| ----------------------------- | ---------------------------------------------------- |
+| iOS (TestFlight)              | <https://testflight.apple.com/join/SmsPnbJK>         |
 | Android (Google Play testing) | <https://play.google.com/apps/testing/app.therealms> |
 
 We'd love to hear what you think: [share your feedback](https://docs.google.com/forms/d/e/1FAIpQLSeET7KSbn5ccqFNQkgipP0yzcLrrleTViaKCywwWVANHOp40w/viewform).
@@ -32,8 +32,12 @@ index.html          The page
 css/                base (tokens, reset), components, layout
 js/main.js          Carousels and the scroll fade on feature cards
 assets/images/      Artwork, store buttons and QR codes
+assets/fonts/       Self-hosted Inter and Cormorant (latin subset, woff2)
 favicon.ico         Browser tab icon
 apple-touch-icon.png  iOS home-screen icon
+robots.txt          Crawler rules, points to the sitemap
+sitemap.xml         List of pages for search engines
+CNAME               Custom domain for GitHub Pages (therealms.app)
 ```
 
 To preview it locally, serve the folder with any static server, for example:
@@ -47,4 +51,6 @@ Then open <http://localhost:8000>.
 Notes for contributors:
 
 - **Store links appear twice** in `index.html` (hero and footer). The QR codes in `assets/images/qr-ios.webp` and `qr-android.webp` encode the same URLs. If a store link changes, update both copies and regenerate the matching QR code.
-- **Content Security Policy:** the page sets a strict CSP in a `<meta>` tag that only allows its own files and Google Fonts. Adding analytics or any other third-party resource requires updating it.
+- **Content Security Policy:** the page sets a strict CSP in a `<meta>` tag that only allows its own files. Adding analytics or any other third-party resource requires updating it.
+- **Domain:** `https://therealms.app/` appears in the canonical link, `og:url`, `robots.txt` and `sitemap.xml`. If the domain changes, update all of them along with `CNAME`.
+- **Images** are exported tightly cropped (no transparent padding or baked-in glow) at 2x their display size. Keep new exports the same way so the CSS doesn't need offsets to undo padding.

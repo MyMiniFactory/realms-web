@@ -1,38 +1,52 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Only our own files plus Google Fonts may load. Update this if analytics or other third-party scripts are added. -->
+    <!-- Only our own files may load. Update this if analytics or other third-party scripts are added. -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'"
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <title>Realms — Who will you be?</title>
+    <title>Realms - Who will you be?</title>
     <meta
       name="description"
       content="Realms is a place where your characters congregate to swap stories, share art and learn about one another."
     />
     <meta name="theme-color" content="#0c0b14" />
+    <link rel="canonical" href="https://therealms.app/" />
 
-    <!-- Social share previews. TODO: add og:url and og:image (absolute URLs) once the domain is known. -->
+    <!-- Social share previews (link cards in chat apps and social media). URLs must be absolute.
+         TODO: add og:image (1200x630, absolute URL) once the artwork is ready. -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://therealms.app/" />
     <meta property="og:site_name" content="Realms" />
-    <meta property="og:title" content="Realms — Who will you be?" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:title" content="Realms - Who will you be?" />
     <meta
       property="og:description"
       content="Realms is a place where your characters congregate to swap stories, share art and learn about one another."
     />
+    <meta name="twitter:card" content="summary" />
 
     <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Self-hosted fonts (latin subset); preloaded so text renders without waiting on CSS -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant:wght@700&family=Inter:wght@400;500;700&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="assets/fonts/inter-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/cormorant-700-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
 
     <link rel="stylesheet" href="css/base.css" />
@@ -42,7 +56,17 @@
   </head>
   <body>
     <div class="page-bg" aria-hidden="true">
-      <img src="assets/images/background-landing.webp" alt="" />
+      <img
+        src="assets/images/background-landing.webp"
+        srcset="
+          assets/images/background-landing-800.webp  800w,
+          assets/images/background-landing.webp     1366w
+        "
+        sizes="100vw"
+        alt=""
+        width="1366"
+        height="768"
+      />
     </div>
 
     <div class="page">
@@ -52,15 +76,15 @@
             class="logo__icon"
             src="assets/images/logo-icon.webp"
             alt=""
-            width="85"
-            height="113"
+            width="78"
+            height="109"
           />
           <img
             class="logo__wordmark"
             src="assets/images/logo-wordmark.webp"
             alt="Realms"
-            width="514"
-            height="113"
+            width="500"
+            height="93"
           />
         </a>
       </header>
@@ -188,6 +212,7 @@
                   <a
                     class="store-btn store-btn--wide"
                     href="https://testflight.apple.com/join/SmsPnbJK"
+                    target="_blank"
                   >
                     <img
                       src="assets/images/btn-app-store.webp"
@@ -210,6 +235,7 @@
                   <a
                     class="store-btn store-btn--wide"
                     href="https://play.google.com/apps/testing/app.therealms"
+                    target="_blank"
                   >
                     <img
                       src="assets/images/btn-google-play.webp"
@@ -230,13 +256,17 @@
             </div>
           </div>
 
-          <img
-            class="hero__screenshot"
-            src="assets/images/screenshot-main.webp"
-            width="632"
-            height="632"
-            alt="Realms app: campaigns list, character profile and projects"
-          />
+          <picture>
+            <source media="(min-width: 768px)" srcset="assets/images/main_image.webp" />
+            <img
+              class="hero__screenshot"
+              src="assets/images/main_image_mobile.webp"
+              width="632"
+              height="632"
+              fetchpriority="high"
+              alt="Realms app: campaigns list, character profile and projects"
+            />
+          </picture>
         </section>
 
         <section class="feedback">
@@ -246,12 +276,13 @@
           <a
             class="feedback__btn"
             href="https://docs.google.com/forms/d/e/1FAIpQLSeET7KSbn5ccqFNQkgipP0yzcLrrleTViaKCywwWVANHOp40w/viewform"
+            target="_blank"
           >
             <img
               src="assets/images/btn-feedback.webp"
               alt="Share your feedback"
-              width="306"
-              height="134"
+              width="254"
+              height="53"
             />
           </a>
         </section>
@@ -272,14 +303,17 @@
                 aria-roledescription="slide"
                 aria-label="1 of 4"
               >
-                <img
-                  class="feature__image"
-                  src="assets/images/screenshot-main.webp"
-                  alt="Realms feed screen"
-                  width="318"
-                  height="318"
-                  loading="lazy"
-                />
+                <picture>
+                  <source media="(min-width: 768px)" srcset="assets/images/feed_image.webp" />
+                  <img
+                    class="feature__image"
+                    src="assets/images/feed_image_mobile.webp"
+                    alt="Realms feed screen"
+                    width="318"
+                    height="318"
+                    loading="lazy"
+                  />
+                </picture>
                 <div class="feature__card card">
                   <h2 class="feature__title">The Feed</h2>
                   <div class="feature__body" tabindex="0">
@@ -300,14 +334,17 @@
                 aria-roledescription="slide"
                 aria-label="2 of 4"
               >
-                <img
-                  class="feature__image"
-                  src="assets/images/screenshot-main.webp"
-                  alt="Realms profile screen"
-                  width="318"
-                  height="318"
-                  loading="lazy"
-                />
+                <picture>
+                  <source media="(min-width: 768px)" srcset="assets/images/profiles_image.webp" />
+                  <img
+                    class="feature__image"
+                    src="assets/images/profiles_image_mobile.webp"
+                    alt="Realms profile screen"
+                    width="318"
+                    height="318"
+                    loading="lazy"
+                  />
+                </picture>
                 <div class="feature__card card">
                   <h2 class="feature__title">Profiles</h2>
                   <div class="feature__body" tabindex="0">
@@ -323,13 +360,14 @@
                       more about them in blog posts.
                     </p>
                     <p>
-                      Have your characters take our personality quiz to learn more about
-                      who they are. You built your Paladin to be selfless and
-                      heroic - but is he really? Let our questions guide you
-                      through hypothetical scenarios and see what your character
-                      is really like. Your campaign mates can also share their
-                      thoughts about your characters, you might believe he is
-                      the hero, but do those who travel with him agree?
+                      Have your characters take our personality quiz to learn
+                      more about who they are. You built your Paladin to be
+                      selfless and heroic - but is he really? Let our questions
+                      guide you through hypothetical scenarios and see what your
+                      character is really like. Your campaign mates can also
+                      share their thoughts about your characters, you might
+                      believe he is the hero, but do those who travel with him
+                      agree?
                     </p>
                   </div>
                 </div>
@@ -342,14 +380,17 @@
                 aria-roledescription="slide"
                 aria-label="3 of 4"
               >
-                <img
-                  class="feature__image"
-                  src="assets/images/screenshot-main.webp"
-                  alt="Realms campaign dashboard screen"
-                  width="318"
-                  height="318"
-                  loading="lazy"
-                />
+                <picture>
+                  <source media="(min-width: 768px)" srcset="assets/images/campaign_dashboard_image.webp" />
+                  <img
+                    class="feature__image"
+                    src="assets/images/campaign_dashboard_image_mobile.webp"
+                    alt="Realms campaign dashboard screen"
+                    width="318"
+                    height="318"
+                    loading="lazy"
+                  />
+                </picture>
                 <div class="feature__card card">
                   <h2 class="feature__title">Campaign Dashboard</h2>
                   <div class="feature__body" tabindex="0">
@@ -378,14 +419,17 @@
                 aria-roledescription="slide"
                 aria-label="4 of 4"
               >
-                <img
-                  class="feature__image"
-                  src="assets/images/screenshot-main.webp"
-                  alt="Realms projects screen"
-                  width="318"
-                  height="318"
-                  loading="lazy"
-                />
+                <picture>
+                  <source media="(min-width: 768px)" srcset="assets/images/projects_image.webp" />
+                  <img
+                    class="feature__image"
+                    src="assets/images/projects_image_mobile.webp"
+                    alt="Realms projects screen"
+                    width="318"
+                    height="318"
+                    loading="lazy"
+                  />
+                </picture>
                 <div class="feature__card card">
                   <h2 class="feature__title">Projects</h2>
                   <div class="feature__body" tabindex="0">
@@ -441,6 +485,7 @@
               <a
                 class="store-btn store-btn--wide"
                 href="https://testflight.apple.com/join/SmsPnbJK"
+                target="_blank"
               >
                 <img
                   src="assets/images/btn-app-store.webp"
@@ -462,6 +507,7 @@
               <a
                 class="store-btn store-btn--wide"
                 href="https://play.google.com/apps/testing/app.therealms"
+                target="_blank"
               >
                 <img
                   src="assets/images/btn-google-play.webp"
