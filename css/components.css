@@ -144,8 +144,10 @@ a.store-btn:focus-visible {
   height: auto;
 }
 
+/* QR codes are pointless on the phone you'd scan them with: desktop only */
 .store-btn--qr {
   display: none;
+  /* 98px of the 207px button on desktop; never so small that phones can't scan it */
   width: max(47.35%, 92px);
   aspect-ratio: 1;
 }
@@ -170,10 +172,6 @@ a.store-btn:focus-visible {
   object-fit: cover;
   border-radius: var(--radius) var(--radius) 0 0;
   background: var(--color-image-placeholder);
-  @media (min-width: 360px) {
-    max-width: none;
-    height: auto;
-  }
 }
 
 .feature__card {
@@ -188,7 +186,16 @@ a.store-btn:focus-visible {
   border-top: 0;
   border-radius: 0 0 var(--radius) var(--radius);
   text-align: center;
-  @media (min-width: 360px) {
+}
+
+/* Not nested inside the rules above: iOS Safari < 17.2 drops nested @media */
+@media (min-width: 360px) {
+  .feature__image {
+    max-width: none;
+    height: auto;
+  }
+
+  .feature__card {
     max-width: none;
   }
 }

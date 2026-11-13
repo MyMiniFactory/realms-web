@@ -141,6 +141,7 @@
 .feedback__btn img {
   width: 100%;
   height: auto;
+  filter: drop-shadow(0 0 8px var(--color-feedback-glow));
 }
 
 .feedback__btn:hover,
@@ -249,10 +250,6 @@
     flex: 0 0 auto;
     width: 254px;
     margin: 0;
-  }
-
-  .feedback__btn img {
-    filter: drop-shadow(0 0 8px rgba(255, 211, 0, 0.5));
   }
 
   /* Narrow desktop: stack the text above the button (as on mobile) so they don't collide */

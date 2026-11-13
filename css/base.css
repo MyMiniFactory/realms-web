@@ -36,6 +36,7 @@
   --color-store-from: rgba(240, 206, 125, 0.2);
   --color-store-to: rgba(240, 206, 125, 0.08);
   --color-store-border: rgba(240, 206, 125, 0.35);
+  --color-feedback-glow: rgba(255, 211, 0, 0.5);
 
   /* Effects */
   --shadow-card: 0 4px 4px rgba(0, 0, 0, 0.25);
