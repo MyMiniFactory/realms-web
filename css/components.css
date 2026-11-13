@@ -157,7 +157,7 @@ a.store-btn:focus-visible {
   height: auto;
 }
 
-/* ---------- Feature (mobile: image on top of the card) ---------- */
+/* ---------- Feature (mobile: image inside the top of the card) ---------- */
 .feature {
   display: flex;
   flex-direction: column;
@@ -165,13 +165,21 @@ a.store-btn:focus-visible {
   color: var(--color-text);
 }
 
+/* The image is the top part of the card: same surface and border, inset 8px/4px */
 .feature__image {
   width: 100%;
   max-width: 355px;
   height: 125px;
+  padding: 4px 8px 0;
   object-fit: cover;
+  border: 1px solid var(--color-card-border);
+  border-bottom: 0;
   border-radius: var(--radius) var(--radius) 0 0;
-  background: var(--color-image-placeholder);
+  background: linear-gradient(
+    to right,
+    var(--color-card-from),
+    var(--color-card-to)
+  );
 }
 
 .feature__card {
@@ -180,8 +188,8 @@ a.store-btn:focus-visible {
   flex-direction: column;
   width: 100%;
   max-width: 355px;
-  height: 190px;
-  padding: 9px 11px 0;
+  height: 180px;
+  padding: 0 11px;
   overflow: hidden;
   border-top: 0;
   border-radius: 0 0 var(--radius) var(--radius);
@@ -341,6 +349,8 @@ a.store-btn:focus-visible {
     max-width: none;
     height: auto;
     aspect-ratio: 1;
+    padding: 0;
+    border: 0;
     border-radius: 0;
     background: none;
   }

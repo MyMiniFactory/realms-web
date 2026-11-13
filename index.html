@@ -256,19 +256,17 @@
             </div>
           </div>
 
-          <img
-            class="hero__screenshot"
-            src="assets/images/screenshot-main.webp"
-            srcset="
-              assets/images/screenshot-main-640.webp  640w,
-              assets/images/screenshot-main.webp     1080w
-            "
-            sizes="(min-width: 1366px) 632px, (min-width: 768px) 46vw, calc(100vw - 44px)"
-            width="632"
-            height="632"
-            fetchpriority="high"
-            alt="Realms app: campaigns list, character profile and projects"
-          />
+          <picture>
+            <source media="(min-width: 768px)" srcset="assets/images/main_image.webp" />
+            <img
+              class="hero__screenshot"
+              src="assets/images/main_image_mobile.webp"
+              width="632"
+              height="632"
+              fetchpriority="high"
+              alt="Realms app: campaigns list, character profile and projects"
+            />
+          </picture>
         </section>
 
         <section class="feedback">
@@ -305,19 +303,17 @@
                 aria-roledescription="slide"
                 aria-label="1 of 4"
               >
-                <img
-                  class="feature__image"
-                  src="assets/images/screenshot-main.webp"
-                  srcset="
-                    assets/images/screenshot-main-640.webp  640w,
-                    assets/images/screenshot-main.webp     1080w
-                  "
-                  sizes="(min-width: 768px) 318px, calc(100vw - 44px)"
-                  alt="Realms feed screen"
-                  width="318"
-                  height="318"
-                  loading="lazy"
-                />
+                <picture>
+                  <source media="(min-width: 768px)" srcset="assets/images/feed_image.webp" />
+                  <img
+                    class="feature__image"
+                    src="assets/images/feed_image_mobile.webp"
+                    alt="Realms feed screen"
+                    width="318"
+                    height="318"
+                    loading="lazy"
+                  />
+                </picture>
                 <div class="feature__card card">
                   <h2 class="feature__title">The Feed</h2>
                   <div class="feature__body" tabindex="0">
@@ -338,19 +334,17 @@
                 aria-roledescription="slide"
                 aria-label="2 of 4"
               >
-                <img
-                  class="feature__image"
-                  src="assets/images/screenshot-main.webp"
-                  srcset="
-                    assets/images/screenshot-main-640.webp  640w,
-                    assets/images/screenshot-main.webp     1080w
-                  "
-                  sizes="(min-width: 768px) 318px, calc(100vw - 44px)"
-                  alt="Realms profile screen"
-                  width="318"
-                  height="318"
-                  loading="lazy"
-                />
+                <picture>
+                  <source media="(min-width: 768px)" srcset="assets/images/profiles_image.webp" />
+                  <img
+                    class="feature__image"
+                    src="assets/images/profiles_image_mobile.webp"
+                    alt="Realms profile screen"
+                    width="318"
+                    height="318"
+                    loading="lazy"
+                  />
+                </picture>
                 <div class="feature__card card">
                   <h2 class="feature__title">Profiles</h2>
                   <div class="feature__body" tabindex="0">
@@ -386,19 +380,17 @@
                 aria-roledescription="slide"
                 aria-label="3 of 4"
               >
-                <img
-                  class="feature__image"
-                  src="assets/images/screenshot-main.webp"
-                  srcset="
-                    assets/images/screenshot-main-640.webp  640w,
-                    assets/images/screenshot-main.webp     1080w
-                  "
-                  sizes="(min-width: 768px) 318px, calc(100vw - 44px)"
-                  alt="Realms campaign dashboard screen"
-                  width="318"
-                  height="318"
-                  loading="lazy"
-                />
+                <picture>
+                  <source media="(min-width: 768px)" srcset="assets/images/campaign_dashboard_image.webp" />
+                  <img
+                    class="feature__image"
+                    src="assets/images/campaign_dashboard_image_mobile.webp"
+                    alt="Realms campaign dashboard screen"
+                    width="318"
+                    height="318"
+                    loading="lazy"
+                  />
+                </picture>
                 <div class="feature__card card">
                   <h2 class="feature__title">Campaign Dashboard</h2>
                   <div class="feature__body" tabindex="0">
@@ -427,19 +419,17 @@
                 aria-roledescription="slide"
                 aria-label="4 of 4"
               >
-                <img
-                  class="feature__image"
-                  src="assets/images/screenshot-main.webp"
-                  srcset="
-                    assets/images/screenshot-main-640.webp  640w,
-                    assets/images/screenshot-main.webp     1080w
-                  "
-                  sizes="(min-width: 768px) 318px, calc(100vw - 44px)"
-                  alt="Realms projects screen"
-                  width="318"
-                  height="318"
-                  loading="lazy"
-                />
+                <picture>
+                  <source media="(min-width: 768px)" srcset="assets/images/projects_image.webp" />
+                  <img
+                    class="feature__image"
+                    src="assets/images/projects_image_mobile.webp"
+                    alt="Realms projects screen"
+                    width="318"
+                    height="318"
+                    loading="lazy"
+                  />
+                </picture>
                 <div class="feature__card card">
                   <h2 class="feature__title">Projects</h2>
                   <div class="feature__body" tabindex="0">

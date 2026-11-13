@@ -90,6 +90,7 @@
 
 .hero__screenshot {
   order: 2;
+  width: 91.5%;
   height: auto;
   aspect-ratio: 1;
   margin-top: 6px;
@@ -151,7 +152,7 @@
 
 /* ---------- Features (mobile: carousel) ---------- */
 .features {
-  padding-inline: var(--gutter);
+  padding-inline: 40px;
   margin-top: 1px;
 }
 
