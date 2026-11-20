@@ -3,22 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Only our own files may load. Update this if analytics or other third-party scripts are added. -->
+    <!-- Only our own files may load, plus the YouTube player (privacy-enhanced domain) for the video guides.
+         Update this if analytics or other third-party scripts are added. -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; frame-src https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'; object-src 'none'"
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <title>Realms - Who will you be?</title>
     <meta
       name="description"
-      content="Realms is a place where your characters congregate to swap stories, share art and learn about one another."
+      content="Realms - a space to celebrate characters and their stories. Catalogue your adventures, share information with your party members and organise your campaign."
     />
     <meta name="theme-color" content="#0c0b14" />
     <link rel="canonical" href="https://therealms.app/" />
 
-    <!-- Social share previews (link cards in chat apps and social media). URLs must be absolute.
-         TODO: add og:image (1200x630, absolute URL) once the artwork is ready. -->
+    <!-- Social share previews (link cards in chat apps and social media). URLs must be absolute. -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://therealms.app/" />
     <meta property="og:site_name" content="Realms" />
@@ -26,9 +26,21 @@
     <meta property="og:title" content="Realms - Who will you be?" />
     <meta
       property="og:description"
-      content="Realms is a place where your characters congregate to swap stories, share art and learn about one another."
+      content="Realms - a space to celebrate characters and their stories. Catalogue your adventures, share information with your party members and organise your campaign."
     />
-    <meta name="twitter:card" content="summary" />
+    <meta
+      property="og:image"
+      content="https://therealms.app/assets/images/og_image.jpg"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="The Realms logo" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://therealms.app/assets/images/og_image.jpg"
+    />
 
     <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -97,8 +109,7 @@
               <h1 class="hero__title">Who will you be?</h1>
               <div class="hero__intro">
                 <p>
-                  Realms is a place where your characters congregate to swap
-                  stories, share art and learn about one another.
+                  Realms - a space to celebrate characters and their stories.
                 </p>
                 <p>
                   Catalogue your adventures, share information with your party
@@ -206,7 +217,10 @@
             </div>
 
             <div class="download download--hero">
-              <p class="eyebrow">Download Demo!</p>
+              <p class="eyebrow">
+                Download Demo!
+                <span class="nowrap">(Beta Version - November 2026)</span>
+              </p>
               <div class="store-buttons">
                 <div class="store">
                   <a
@@ -257,7 +271,10 @@
           </div>
 
           <picture>
-            <source media="(min-width: 768px)" srcset="assets/images/main_image.webp" />
+            <source
+              media="(min-width: 768px)"
+              srcset="assets/images/main_image.webp"
+            />
             <img
               class="hero__screenshot"
               src="assets/images/main_image_mobile.webp"
@@ -287,6 +304,51 @@
           </a>
         </section>
 
+        <!-- Video guides: embedded YouTube players. Use the youtube-nocookie.com domain (the only
+             frame source the CSP allows); loading="lazy" defers them until they scroll near view. -->
+        <section class="videos" aria-label="Video guides">
+          <div class="video">
+            <h2 class="video__title">The Realms Beta Test</h2>
+            <iframe
+              class="video__frame"
+              src="https://www.youtube-nocookie.com/embed/XI600Z5CJwg?rel=0"
+              title="The Realms Beta Test"
+              loading="lazy"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="video">
+            <h2 class="video__title">How to use Realms</h2>
+            <iframe
+              class="video__frame"
+              src="https://www.youtube-nocookie.com/embed/HlZUl41dDTc?rel=0"
+              title="How to use Realms"
+              loading="lazy"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </section>
+
         <section class="features" aria-label="Features">
           <div
             class="carousel carousel--features"
@@ -304,7 +366,10 @@
                 aria-label="1 of 4"
               >
                 <picture>
-                  <source media="(min-width: 768px)" srcset="assets/images/feed_image.webp" />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="assets/images/feed_image.webp"
+                  />
                   <img
                     class="feature__image"
                     src="assets/images/feed_image_mobile.webp"
@@ -335,7 +400,10 @@
                 aria-label="2 of 4"
               >
                 <picture>
-                  <source media="(min-width: 768px)" srcset="assets/images/profiles_image.webp" />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="assets/images/profiles_image.webp"
+                  />
                   <img
                     class="feature__image"
                     src="assets/images/profiles_image_mobile.webp"
@@ -381,7 +449,10 @@
                 aria-label="3 of 4"
               >
                 <picture>
-                  <source media="(min-width: 768px)" srcset="assets/images/campaign_dashboard_image.webp" />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="assets/images/campaign_dashboard_image.webp"
+                  />
                   <img
                     class="feature__image"
                     src="assets/images/campaign_dashboard_image_mobile.webp"
@@ -420,7 +491,10 @@
                 aria-label="4 of 4"
               >
                 <picture>
-                  <source media="(min-width: 768px)" srcset="assets/images/projects_image.webp" />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="assets/images/projects_image.webp"
+                  />
                   <img
                     class="feature__image"
                     src="assets/images/projects_image_mobile.webp"

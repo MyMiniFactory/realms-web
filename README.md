@@ -53,4 +53,6 @@ Notes for contributors:
 - **Store links appear twice** in `index.html` (hero and footer). The QR codes in `assets/images/qr-ios.webp` and `qr-android.webp` encode the same URLs. If a store link changes, update both copies and regenerate the matching QR code.
 - **Content Security Policy:** the page sets a strict CSP in a `<meta>` tag that only allows its own files. Adding analytics or any other third-party resource requires updating it.
 - **Domain:** `https://therealms.app/` appears in the canonical link, `og:url`, `robots.txt` and `sitemap.xml`. If the domain changes, update all of them along with `CNAME`.
+- **Video guides** are YouTube `<iframe>` embeds from `youtube-nocookie.com`, the one domain the CSP allows via `frame-src`. When pasting a new embed code from YouTube, switch `youtube.com` to `youtube-nocookie.com`.
+- **Share preview:** `assets/images/og_image.jpg` (1200x630) is the image chat apps and social media show for links to the site. It is referenced by absolute URL in `og:image` / `twitter:image`, so it only appears once deployed.
 - **Images** are exported tightly cropped (no transparent padding or baked-in glow) at 2x their display size. Keep new exports the same way so the CSS doesn't need offsets to undo padding.
