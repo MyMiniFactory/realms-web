@@ -147,14 +147,37 @@ a.store-btn:focus-visible {
 /* QR codes are pointless on the phone you'd scan them with: desktop only */
 .store-btn--qr {
   display: none;
-  /* 98px of the 207px button on desktop; never so small that phones can't scan it */
-  width: max(47.35%, 92px);
+  /* As wide as the store button above it, so the code is easy to scan */
+  width: 100%;
   aspect-ratio: 1;
 }
 
 .store-btn--qr img {
   width: 89%;
   height: auto;
+}
+
+/* ---------- Video guides (embedded YouTube player) ---------- */
+/* Sized like the Figma card (480x281), scaling with its column */
+.video__frame {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 480 / 281;
+  border: 0;
+  border-radius: var(--radius);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background: #000;
+}
+
+/* Titles are desktop only in the design; keep them for screen readers on mobile */
+.video__title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 /* ---------- Feature (mobile: image inside the top of the card) ---------- */
@@ -343,6 +366,23 @@ a.store-btn:focus-visible {
 
   .store-btn--qr {
     display: grid;
+  }
+
+  .video__title {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+    margin-bottom: 14px;
+    color: var(--color-text);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    letter-spacing: 0.02em;
+    text-align: center;
   }
 
   .feature__image {
