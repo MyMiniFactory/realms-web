@@ -165,7 +165,7 @@ a.store-btn:focus-visible {
   height: auto;
   aspect-ratio: 480 / 281;
   border: 0;
-  border-radius: 10px;
+  border-radius: var(--radius);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   background: #000;
 }

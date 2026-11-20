@@ -155,7 +155,7 @@
   display: grid;
   row-gap: 17px;
   padding-inline: 40px;
-  margin-bottom: 29px; /* 30px to the features with their 1px margin */
+  margin-bottom: 30px; /* 30px to the features, collapses with their 1px margin-top */
 }
 
 /* ---------- Features (mobile: carousel) ---------- */
@@ -286,7 +286,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 31px;
     max-width: calc(var(--features-max) + 80px);
-    margin: 0 auto 30px; /* 41px to the features with their 11px margin */
+    margin: 0 auto 41px; /* 41px to the features, collapses with their 11px margin-top */
   }
 
   /* Features: carousel off, 4 alternating rows */
